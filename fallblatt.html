@@ -24,17 +24,35 @@
         <script type="text/javascript">
             $(function() {
                 function rotate(canvas) {
-                    for (var i=0; i<=canvas.flapsX; i++) {
-                        for (var j=0; j<=canvas.flapsY; j++) {
+                    //" 1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ'‘?’“!”(%)[#]{@}/&\\<-_+÷×=>$€:;,.~*rbgyow"
+                    display_result = [
+                        ['r', 'b', 'g', '@', '\'', '<', '!', '>', '@', '\'', 'r', 'b', 'g'],
+                        ['r', 'b', 'g', '@', '\'', '<', '!', '>', '@', '\'', 'r', 'b', 'g'],
+                        ['r', 'b', 'g', '@', '\'', '<', '!', '>', '@', '\'', 'r', 'b', 'g'],
+                        ['r', 'b', 'g', '@', '\'', '<', '!', '>', '@', '\'', 'r', 'b', 'g'],
+                        ['r', 'b', 'g', '@', '\'', '<', '!', '>', '@', '\'', 'r', 'b', 'g'],
+                        []
+                    ]
+                    for (var i = 0; i <= canvas.flapsX; i++) {
+                        for (var j = 0; j <= canvas.flapsY; j++) {
                             $("#splitFlapCanvas").fallBlatt("display", {
-                                pos: [i,j],
-                                content: $.fn.fallBlatt.defaults.flapCharset.chars[
-                                    Math.floor(Math.random() * $.fn.fallBlatt.defaults.flapCharset.chars.length)
-                                ]
+                                pos: [i, j],
+                                content: display_result[j][i]
                             });
                         }
                     }
                 }
+//                     for (var i=0; i<=canvas.flapsX; i++) {
+//                         for (var j=0; j<=canvas.flapsY; j++) {
+//                             $("#splitFlapCanvas").fallBlatt("display", {
+//                                 pos: [i,j],
+//                                 content: $.fn.fallBlatt.defaults.flapCharset.chars[
+//                                     Math.floor(Math.random() * $.fn.fallBlatt.defaults.flapCharset.chars.length)
+//                                 ]
+//                             });
+//                         }
+//                     }
+//                 }
 
                 var canvas = $("#splitFlapCanvas").fallBlatt({
                     flapSpacingExtraWidth: 10,
